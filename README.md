@@ -28,6 +28,25 @@ Now I will use this to tell you my assumption about the method.
        Tap KE to enter the first mode.
 
 
+## Stucture
+
+### always @
+
+There will be 4 always@ in total, 
+- clock-deviding (named as clkdvd);
+- To choose which tube to light(every 0.04s) (named as wtl);
+- To choose what num to display (named wtp),using reg[5:0] to decide the num and a case to translate it to digital tube;
+- To make noise;
+
+### achievement 
+
+一开始所有都显示，用上边的always@，然后case0是什么都不做，按键进入case1；
+Case1，把所有的wtd里边的每个灯的数都置零，再按键进入case2；
+Case2，对wtp内的数字进行按位数的加减操作,异步复位
+
+
+
+
 There will be ? always@ in total, 
 - clk-devide (concise as clkdvd), 
- 
+
