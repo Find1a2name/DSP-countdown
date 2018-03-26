@@ -40,9 +40,9 @@ There will be 4 always@ in total,
 
 ### achievement 
 
-一开始所有都显示，用上边的always@，然后case0是什么都不做，按键进入case1；
-Case1，把所有的wtd里边的每个灯的数都置零，再按键进入case2；
-Case2，对wtp内的数字进行按位数的加减操作,异步复位
+- 一开始所有都显示，用上边的always@，然后case0是什么都不做，按键进入case1；
+- Case1，把所有的wtd里边的每个灯的数都置零，再按键进入case2；
+- Case2，对wtp内的数字进行按位数的加减操作,异步复位
 
 
 
