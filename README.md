@@ -3,7 +3,8 @@ A FPGA program for my DSP class to achieve the function of countdown.
 
 Now I will use this to tell you my assumption about the method.
 
-##Function
+## Function
+
    A countdown program：
 1. Start&initialize：
        To initialize the device by tap the key-enter(KE);
