@@ -1,3 +1,7 @@
+
+//https://wenku.baidu.com/view/c2a4d314336c1eb91b375d28.html?from=search###
+//this work is where i find spirit;
+
 Module countdown (clk,clk_dvd,ke,ku,kd,kl,kr,sel,data,num,cnt,rst_n,);
 	input clk,ke,ku,kd,kl,kr;
 	
