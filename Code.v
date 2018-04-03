@@ -8,18 +8,19 @@ output reg sel1,sel2,sel3,sel4,sel5,sel6;
 reg [2:0] sel= 1;
 reg [23:0]data = 24'h523456;
 reg [23:0] dat;reg [23:0] t = 24'hAAAAAA;reg [4:0] js;
-//需要修改
-reg [3:0]num;
-output reg [7:0]led;
+	
+reg [3:0]num;	//数码管显示数the num the led display
+output reg [7:0]led;//数码管LED八级
+
 reg [1:0]state=0;
-reg [31:0] fd;
-reg [31:0] fd1;
-reg [31:0] fd2;
-reg [31:0] fd3;reg [31:0] fd4;reg [31:0] fd5;
+	
+reg [31:0] fd;reg [31:0] fd1;reg [31:0] fd2;reg [31:0] fd3;reg [31:0] fd4;reg [31:0] fd5;//防抖计数器，牺牲了很大的内存，...
+	//...有一种好的改进方法是每隔20ms传输一次数据，或者直接在回跳的抖动时间内也重新置零；
 reg [2:0] sell = 1;
 reg [30:0] ds1;
 reg wwait = 1;reg wwait1,wwait2,wwait3,wwait4,wwait5;
 output reg alarm = 1;
+	
 //分频
 always@(posedge clkin)
 begin
@@ -42,9 +43,7 @@ begin
 	end
 	
 case(sel)
-	3'd1:	begin sel1<=0;sel2<=1;sel3<=1;sel4<=1;sel5<=1;sel6<=1;end
-	3'd2:	begin sel2<=0;sel1<=1;sel3<=1;sel4<=1;sel5<=1;sel6<=1;end
-	3'd3:	begin sel3<=0;sel2<=1;sel1<=1;sel4<=1;sel5<=1;sel6<=1;end
+	3'd1:	begin sel1<=0;
 	3'd4:	begin sel4<=0;sel2<=1;sel3<=1;sel1<=1;sel5<=1;sel6<=1;end
 	3'd5:	begin sel5<=0;sel2<=1;sel3<=1;sel4<=1;sel1<=1;sel6<=1;end
 	3'd6:	begin sel6<=0;sel2<=1;sel3<=1;sel4<=1;sel5<=1;sel1<=1;end
@@ -62,10 +61,37 @@ case(sel)
 	3'h6: num = data[3:0];
 endcase
 end
+	
+	
 always @(posedge clk_dvd)
 begin
+	
+	
+	if (sell == sel)
+		if(js <= 4)
+			js <= js+1;
+			
+		else
+		begin
+			if(js == 5)
+			begin
+				js <= js+1;
+				num <= 4'hA;
+			end
+			else
+			begin
+				js <= 0;
+				num <= 4'hA;
+			end
+				
+		end
+			
+			
+		
+		
 
 case(num)
+	
 	4'h0: led = 8'hC0;
 	4'h1: led = 8'hF9;
 	4'h2: led = 8'hA4;
