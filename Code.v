@@ -23,7 +23,7 @@ output reg alarm = 1;
 //分频
 always@(posedge clkin)
 begin
-	if	(cnt==100000)
+	if	(cnt==1000000)
 	begin
 		clk_dvd=~clk_dvd;
 		cnt = 0;
