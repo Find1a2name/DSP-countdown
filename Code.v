@@ -1,4 +1,4 @@
-module djs(clkin,clk_dvd,ke,ku,kd,kl,kr,sel1,sel2,sel3,sel4,sel5,sel6,led,alarm);
+module cutdown(clkin,clk_dvd,ke,ku,kd,kl,kr,sel1,sel2,sel3,sel4,sel5,sel6,led,alarm);
 input clkin,ke,ku,kd,kl,kr;
 output clk_dvd;
 reg [31:0]cnt=0;
@@ -116,24 +116,6 @@ begin
 end
 
 2'h1:begin
-//	if(sel == sell)
-//	begin
-//		if (js<5)
-//		begin
-//			data <= dat;
-//			js<=js+1;	
-//		end
-//		else
-//		begin
-//			data <= t;
-//			js<=0;
-//		end
-//	end
-//	else
-	//	data <= dat;
-	
-		
-		
 		
 		
 	if ((ku==0) || (fd1>0))
