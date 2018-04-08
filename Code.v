@@ -43,7 +43,9 @@ begin
 	end
 	
 case(sel)
-	3'd1:	begin sel1<=0;
+	3'd1:	begin sel1<=0;sel2<=1;sel3<=1;sel4<=1;sel5<=1;sel6<=1;end
+	3'd2:	begin sel2<=0;sel1<=1;sel3<=1;sel4<=1;sel5<=1;sel6<=1;end
+	3'd3:	begin sel3<=0;sel2<=1;sel1<=1;sel4<=1;sel5<=1;sel6<=1;end
 	3'd4:	begin sel4<=0;sel2<=1;sel3<=1;sel1<=1;sel5<=1;sel6<=1;end
 	3'd5:	begin sel5<=0;sel2<=1;sel3<=1;sel4<=1;sel1<=1;sel6<=1;end
 	3'd6:	begin sel6<=0;sel2<=1;sel3<=1;sel4<=1;sel5<=1;sel1<=1;end
