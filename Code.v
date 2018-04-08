@@ -68,12 +68,12 @@ begin
 	
 	
 	if (sell == sel)
-		if(js <= 4)
+		if(js <= 5)
 			js <= js+1;
 			
 		else
 		begin
-			if(js == 5)
+			if(js == 6)
 			begin
 				js <= js+1;
 				num <= 4'hA;
