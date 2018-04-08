@@ -8,6 +8,8 @@ output reg sel1,sel2,sel3,sel4,sel5,sel6;
 reg [2:0] sel= 1;
 reg [23:0]data = 24'h523456;
 reg [23:0] dat;reg [23:0] t = 24'hAAAAAA;reg [4:0] js;
+
+reg ss = 0;
 	
 reg [3:0]num;	//数码管显示数the num the led display
 output reg [7:0]led;//数码管LED八级
@@ -54,44 +56,44 @@ end
 //选择数字
 always @(sel)
 begin
-case(sel)
+	if (sell == sel)
+		if(js <= 5)
+			js = js+1;
+			ss = 0;
+		else
+		begin
+			if(js == 6)
+			begin
+				js = js+1;
+				ss = 1;
+			end
+			else
+			begin
+				js = 0;
+				ss = 1;
+			end
+				
+		end
+	else 
+		ss = 0;
+	
+if(ss==0)
+	case(sel)
 	3'h1: num = data[23:20];
 	3'h2: num = data[19:16];
 	3'h3: num = data[15:12];
 	3'h4: num = data[11:8];
 	3'h5: num = data[7:4];
 	3'h6: num = data[3:0];
-endcase
+	endcase
+else
+	num = 4'hA;
 end
 	
 	
 always @(posedge clk_dvd)
 begin
 	
-	
-	if (sell == sel)
-		if(js <= 5)
-			js <= js+1;
-			
-		else
-		begin
-			if(js == 6)
-			begin
-				js <= js+1;
-				num <= 4'hA;
-			end
-			else
-			begin
-				js <= 0;
-				num <= 4'hA;
-			end
-				
-		end
-			
-			
-		
-		
-
 case(num)
 	
 	4'h0: led = 8'hC0;
